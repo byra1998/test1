@@ -13,7 +13,7 @@ pipeline {
         steps {
         echo "$name"
         echo params.abc
-        echo ${branch}
+        echo "${branch}"
         echo " this is BUIILD stage "
         sh '''
         sleep 5
