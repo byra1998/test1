@@ -1,0 +1,36 @@
+pipeline{
+	agent any
+	//defining parametrs
+	parametrs{
+		choice(name:'environment',choices:['dev','qa','prod'],description:'adding environment variables for deploying to different stages')
+	}
+	stages{
+		stage("build"){
+			steps{
+				echo "build is running"
+				echo "build is successfull"
+				echo "params.environment"
+			}
+		}
+		stage("deploy"){
+			steps{
+				echo "deploy is running"
+				echo "deploy is successfull"
+			}
+		}
+		stage("test"){
+			parallel{
+				stage("test1"){
+					echo "test1 is running"
+					echo "test1 is successfull"					
+				}
+				stage("test2"){
+					echo "test2 is running"
+					echo "test2 is successfull"					
+				}	
+				stage("test3"){
+					echo "test3 is running"
+					echo "test3 is successfull"					
+				}				
+			}
+}
