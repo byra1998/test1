@@ -1,10 +1,15 @@
 pipeline{
 	agent any
+	//defining parametrs
+	parametrs{
+		choice(name:'environment',choices:['dev','qa','prod'],description:'adding environment variables for deploying to different stages')
+	}
 	stages{
 		stage("build"){
 			steps{
 				echo "build is running"
 				echo "build is successfull"
+				echo "params.environment"
 			}
 		}
 		stage("deploy"){
