@@ -3,11 +3,15 @@ pipeline {
   environment{
     name = "byra"
   }
+  parameters {
+  string defaultValue: 'https://github.com/byra1998/test1', description: 'adding parameter for giving branch name', name: 'branch '
+  }
     stages {
       stage ( 'BUILD' ) {
         steps {
         echo "$name"
         echo params.abc
+        echo params.branch
         echo " this is BUIILD stage "
         sh '''
         sleep 5
